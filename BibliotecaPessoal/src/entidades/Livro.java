@@ -49,7 +49,7 @@ public class Livro {
 	public void setAnoPublicacao(int anoPublicacao) {
 		now = null;
 		
-		if(anoPublicacao <= now.getMonthValue()) {
+		if(anoPublicacao <= now.getYear() && anoPublicacao >=1900) {
 			this.anoPublicacao = anoPublicacao;
 		}else{
 			System.out.println("Dispara Exception"); // refatorar depois

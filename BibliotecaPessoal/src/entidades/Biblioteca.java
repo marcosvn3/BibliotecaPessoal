@@ -1,48 +1,49 @@
 package entidades;
 
-import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Biblioteca {
-	private HashMap<String, Livro> estante;
+	private List<Livro> estante;
 
 	public Biblioteca() {
-		this.estante = new HashMap<>();
+		this.estante = new ArrayList<>();
 	}
 
-	public void adicionarLivroPorAutor(Livro livro) {
-		estante.put(livro.getAutor(), livro);
-		System.out.println("Livro adicionado com sucesso!");
-	}
-
-	public void adicionarLivroPorTitulo(Livro livro) {
-		estante.put(livro.getTitulo(), livro);
+	public void adicionarLivro(Livro livro) {
+		estante.add(livro);
 		System.out.println("Livro adicionado com sucesso!");
 	}
 
 	public void listarLivros() {
 		if (!estante.isEmpty()) {
-			estante.forEach((tituloL, livro) -> System.out.println("Livro" + tituloL + "-" + livro));
+			for (Livro i : estante) {
+				System.out.println(i);
+			}
 		} else {
 			System.out.println("Estante vazia!");
 		}
 
 	}
 
-	public void buscarLivroPorAutor(String autor) {
-		if (!estante.containsKey(autor)) {
-			System.out.println(autor + "- não encontrado");
-		} else {
-			estante.get(autor);
+	public void buscarLivrosPorAutor(String autor) {
+		for (Livro livro : estante) {
+			if (livro.getAutor().equalsIgnoreCase(autor)) {
+				System.out.println(livro);
+			} else {
+				System.out.println("Livro não encontrado!");
+			}
 		}
 	}
-	
+
 	public void buscarLivroPorTitulo(String titulo) {
-		if (!estante.containsKey(titulo)) {
-			System.out.println(titulo + "- não encontrado");
-		} else {
-			estante.get(titulo);
+		for (Livro livro : estante) {
+			if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+				System.out.println(livro);
+			} else {
+				System.out.println("Livro não encontrado!");
+			}
 		}
 	}
-	
 
 }
