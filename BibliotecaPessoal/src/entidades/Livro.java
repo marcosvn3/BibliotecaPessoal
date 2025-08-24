@@ -1,21 +1,22 @@
 package entidades;
 
-import java.time.LocalDate;
-
 public class Livro {
 
 	private String titulo; 
 	private	String autor;
 	private int anoPublicacao;
 	private String genero;
-	private LocalDate now;
+	private String descricao;
+	private int now ;
 	
 	
-	public Livro (String titulo, String autor, int anoPublicacao, String genero) {
+	public Livro (String titulo, String autor, int anoPublicacao, String genero,String descricao) {
 		setTitulo(titulo);
 		setAutor(autor);
 		setAnoPublicacao(anoPublicacao);
 		setGenero(genero);
+		setDescricao(descricao);
+		this.now = 2025;
 	}
 
 	public String getTitulo() {
@@ -35,10 +36,8 @@ public class Livro {
 	}
 
 	public void setAutor(String autor) {
-		if(autor.length() >= 5) {
+		if(autor.length() <= 4) {
 			this.autor = autor;
-		}else {
-			System.out.println("Exception");//refatorar depois!
 		}
 	}
 
@@ -47,14 +46,9 @@ public class Livro {
 	}
 
 	public void setAnoPublicacao(int anoPublicacao) {
-		now = null;
-		
-		if(anoPublicacao <= now.getYear() && anoPublicacao >=1900) {
+		if(anoPublicacao <= now && anoPublicacao >=1800) {
 			this.anoPublicacao = anoPublicacao;
-		}else{
-			System.out.println("Dispara Exception"); // refatorar depois
 		}
-		
 	}
 
 	public String getGenero() {
@@ -64,12 +58,24 @@ public class Livro {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+	
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
 	@Override
 	public String toString() {
 		return "Livro [titulo=" + titulo + ", autor=" + autor + ", anoPublicacao=" + anoPublicacao + ", genero="
-				+ genero + "]";
+				+ genero + ", descricao=" + descricao + "]";
 	}
+
+	
+
 	
 	
 	
