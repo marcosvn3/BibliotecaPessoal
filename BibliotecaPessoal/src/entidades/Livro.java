@@ -7,7 +7,6 @@ public class Livro {
 	private int anoPublicacao;
 	private String genero;
 	private String descricao;
-	private int now ;
 	
 	
 	public Livro (String titulo, String autor, int anoPublicacao, String genero,String descricao) {
@@ -16,7 +15,7 @@ public class Livro {
 		setAnoPublicacao(anoPublicacao);
 		setGenero(genero);
 		setDescricao(descricao);
-		this.now = 2025;
+		
 	}
 
 	public String getTitulo() {
@@ -36,9 +35,7 @@ public class Livro {
 	}
 
 	public void setAutor(String autor) {
-		if(autor.length() <= 4) {
-			this.autor = autor;
-		}
+		this.autor = autor;
 	}
 
 	public int getAnoPublicacao() {
@@ -46,9 +43,12 @@ public class Livro {
 	}
 
 	public void setAnoPublicacao(int anoPublicacao) {
-		if(anoPublicacao <= now && anoPublicacao >=1800) {
+		if(anoPublicacao >= 1800 && anoPublicacao <=2025) {
 			this.anoPublicacao = anoPublicacao;
+		}else {
+			System.out.println("Ano de publicação não valido!");
 		}
+				
 	}
 
 	public String getGenero() {

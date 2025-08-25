@@ -51,5 +51,16 @@ public class Biblioteca {
 			}
 		}
 	}
+	
+	
+	public void removerLivro(String titulo) {
+		for(Livro livro : livros) {
+			if(livro.getTitulo().equalsIgnoreCase(titulo)) {
+				livros.remove(livro);
+			}else {
+				throw new RuntimeException("Livro não encontrado");
+			}
+		}
+	}
 
 }
